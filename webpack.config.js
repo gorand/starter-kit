@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/app/index.js',
+    entry: ['./src/js/app/index.js'],
     plugins: [
+        new MiniCssExtractPlugin({ filename: 'styles.css' }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'Development',
@@ -24,7 +26,29 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                 },
-            }
+            },
+            {
+                test: /\.(sc|c)ss$/,
+                use: [
+                    'style-loader',
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: { sourceMap: true },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: { sourceMap: true },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            implementation: require('sass'),
+                        },
+                    },
+                ],
+            },
         ],
     },
     devtool: 'inline-source-map',
