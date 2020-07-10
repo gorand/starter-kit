@@ -1,0 +1,29 @@
+{
+  "name": "starter-kit",
+  "version": "1.0.0",
+  "description": "Strarter Kit for a typical project",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "start": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gorand/starter-kit.git"
+  },
+  "author": "Gordeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gorand/starter-kit/issues"
+  },
+  "homepage": "https://github.com/gorand/starter-kit#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
