@@ -1,6 +1,6 @@
 import React from 'react';
 import ReacDOM from 'react-dom';
-import '../../scss/init/index.scss';
+import '../../scss/entry/index.scss';
 
 const App = () => (
     <div className="box">
