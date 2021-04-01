@@ -1,0 +1,11 @@
+.DEV {
+    $-root: &;
+
+    &-title {
+        margin: 0;
+        padding: 12px $GUP;
+        font-size: 23px;
+        line-height: 1.25;
+        font-weight: bold;
+    }
+}
