@@ -1,5 +1,6 @@
 @import '../vendor/normalize';
 @import '../variables';
+@import '../mixins/index';
 @import '../common/basic';
 @import '../common/utils';
-@import './components.scss';
+@import './components';

@@ -1,0 +1,10 @@
+.spinner {
+    $-root: &;
+    $-m--primary: '--primary';
+
+    @include spinner();
+
+    &#{$-m--primary} {
+        @include spinner(52, 6, mix(black, $COLOR-PRIMARY, 8%), lighten($COLOR-PRIMARY, 20));
+    }
+}
