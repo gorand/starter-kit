@@ -5,4 +5,5 @@ Strarter Kit for a typical project
 * SCSS-mixins
     * spinner
     * progress
+    * strip gradient (animation)
 * Semantic HTML-template
