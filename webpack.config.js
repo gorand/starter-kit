@@ -11,6 +11,7 @@ module.exports = {
     mode: 'development',
     entry: {
         common: `${dir.src}/js/app/index.js`,
+        validator: `${dir.src}/js/app/index.js`,
         modules: `${dir.src}/js/modules/index.js`,
     },
     plugins: [
@@ -19,6 +20,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Development',
             template: __dirname + '/src/index.html',
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Validation',
+            filename: 'validate.html',
+            template: __dirname + '/src/validate.html',
         }),
     ],
     output: {
