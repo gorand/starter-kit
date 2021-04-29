@@ -8,3 +8,6 @@ Strarter Kit for a typical project
     * strip gradient (animation)
 * SCSS folder `Atoms`
 * Semantic HTML-template
+* Native Components
+   * Tabs
+* Template Cards by Flexbox
