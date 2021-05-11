@@ -11,3 +11,4 @@ Strarter Kit for a typical project
 * Native Components
    * Tabs
 * Template Cards by Flexbox
+* Implementation of validation
