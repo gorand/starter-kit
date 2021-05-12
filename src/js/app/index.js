@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ReacDOM from 'react-dom';
+import ReactDOM from 'react-dom';
+import Overspin from '../components/Overspin.jsx';
+import Main from '../components/Main.jsx';
+
 import '../../scss/entry/index.scss';
 
 const App = () => {
@@ -17,15 +20,16 @@ const App = () => {
     const spinner = <div className="spinner spinner--primary"></div>;
 
     return (
-        <div className={'overspin' + (overed ? ' is-visible' : '')}>
+        <Overspin visible={overed}>
             <div className="page">
                 <div className="page__body">
-                    <div className="page__title">Typical React App</div>
+                    <div className="page__title">Typical Parts (example of responsive flexbox)</div>
                     {loading && spinner}
+                    {!loading && <Main />}
                 </div>
             </div>
-        </div>
+        </Overspin>
     );
 };
 
-ReacDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

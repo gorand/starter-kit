@@ -1,0 +1,67 @@
+.card {
+    $-root: &;
+    $-parent: #{&}#{s};
+    $-offset: $GAP * 0.75;
+    $-size-circle: 68px;
+
+    @at-root #{$-parent} {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 (-$-offset);
+    }
+
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-basis: 31%;
+    flex-grow: 1;
+    padding: ($GAP * 0.75) ($GAP);
+    margin: $-offset;
+    min-height: 120px;
+    background-color: white;
+    border-radius: $RADIUS;
+    box-shadow: 0 0 8px -3px rgba(black, 0.18);
+
+    &::after {
+        position: absolute;
+        right: -(ceil($-size-circle / 5));
+        top: -(ceil($-size-circle / 4));
+        display: block;
+        width: $-size-circle;
+        height: $-size-circle;
+        content: '';
+        border-radius: 50%;
+    }
+
+    @for $index from 1 to 9 {
+        &:nth-child(#{$index})::after {
+            background-color: adjust-hue($COLOR-PRIMARY, random($limit: 280));
+        }
+    }
+
+    &__title {
+        font-size: 2.12rem;
+        line-height: 1.25;
+        font-weight: bold;
+    }
+
+    &__btn {
+        @include button-reset;
+        padding: 0.35rem 0.6rem;
+        font-size: 1.12rem;
+        border: 1px solid darken($COLOR-PRIMARY, 4);
+        background-color: lighten($COLOR-PRIMARY, 14);
+        color: darken($COLOR-PRIMARY, 30);
+        text-transform: uppercase;
+        border-radius: 0.2rem;
+
+        &:hover {
+            background-color: darken(white, 3);
+            border-color: currentColor;
+        }
+    }
+}
+

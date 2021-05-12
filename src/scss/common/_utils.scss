@@ -1,11 +1,11 @@
 .u-box {
-    $-gup: 12px;
+    $-gap: 12px;
     $-is-hidden: '.is-hidden';
     $-is-visible: '.is-visible';
     $-has-hidden: '.has-hidden';
 
     &-holder {
-        padding: $-gup ($-gup + 4);
+        padding: $-gap ($-gap + 4);
     }
 
     &-flex {
