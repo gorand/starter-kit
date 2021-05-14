@@ -8,4 +8,16 @@
         line-height: 1.25;
         font-weight: bold;
     }
+
+    &-nav {
+        display: flex;
+        padding: ($GAP / 2) $GAP;
+    }
+
+    &-nav-item {
+        display: inline-block;
+        margin-right: $GAP;
+        color: $COLOR-PRIMARY;
+        font-size: 16px;
+    }
 }

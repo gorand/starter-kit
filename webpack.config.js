@@ -1,12 +1,30 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const dir = {
     src: './src',
     dist: './dist',
 };
+
+function getHtmPlugins(dir) {
+    const files = fs.readdirSync(path.resolve(__dirname, dir)).filter(f => f.includes('.html'));
+
+    return files.map(file => {
+        const parts = file.split('.');
+        const name = parts[0];
+        const extension = parts[1];
+
+        return new HtmlWebpackPlugin({
+            filename: `${name}.html`,
+            chunks: [name],
+            template: path.resolve(__dirname, `${dir}/${name}.${extension}`),
+        });
+    });
+}
 
 module.exports = {
     mode: 'development',
@@ -18,16 +36,11 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({ filename: 'styles.css' }),
         new CleanWebpackPlugin(),
+        ...getHtmPlugins(`${dir.src}/templates`),
         new HtmlWebpackPlugin({
             title: 'Development',
             chunks: ['common'],
-            template: __dirname + '/src/index.html',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'Validation',
-            filename: 'validate.html',
-            chunks: ['validator'],
-            template: __dirname + '/src/validate.html',
+            template: __dirname + '/src/templates/index.html',
         }),
     ],
     output: {
@@ -41,6 +54,13 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
+                },
+            },
+            {
+                test: /\.html$/,
+                include: path.resolve(__dirname, 'src/templates/partials'),
+                use: {
+                    loader: 'raw-loader',
                 },
             },
             {
@@ -74,8 +94,6 @@ module.exports = {
     watch: true,
     optimization: {
         minimize: true,
-        minimizer: [
-            new OptimizeCssAssetsPlugin(),
-        ],
+        minimizer: [new OptimizeCssAssetsPlugin()],
     },
 };
