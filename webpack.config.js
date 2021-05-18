@@ -31,7 +31,7 @@ module.exports = {
     entry: {
         common: `${dir.src}/js/app/index.js`,
         validator: `${dir.src}/js/app/validator.js`,
-        modules: `${dir.src}/js/modules/index.js`,
+        modules: `${dir.src}/js/app/modules.js`,
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: 'styles.css' }),
