@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import Overspin from '../components/Overspin.jsx';
 import Main from '../components/Main.jsx';
 
-import '../../scss/entry/index.scss';
-
 const App = () => {
     const [loading, setLoading] = useState(true);
     const [overed, setOver] = useState(false);

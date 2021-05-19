@@ -28,12 +28,12 @@ function getHtmPlugins(dir) {
 module.exports = {
     mode: 'development',
     entry: {
-        common: `${dir.src}/js/app/index.js`,
-        validator: `${dir.src}/js/app/validator.js`,
-        modules: `${dir.src}/js/app/modules.js`,
+        common: [`${dir.src}/js/app/index.js`, `${dir.src}/scss/entry/index.scss`],
+        validator: [`${dir.src}/js/app/validator.js`, `${dir.src}/scss/entry/index.scss`],
+        modules: [`${dir.src}/js/app/modules.js`, `${dir.src}/scss/entry/index.scss`],
     },
     plugins: [
-        new MiniCssExtractPlugin({ filename: 'styles.css' }),
+        new MiniCssExtractPlugin({ filename: '[name].css' }),
         new CleanWebpackPlugin(),
         ...getHtmPlugins(`${dir.src}/templates`),
         new HtmlWebpackPlugin({
