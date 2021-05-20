@@ -1,0 +1,37 @@
+#main {
+    margin: $GAP auto;
+    padding: $GAP * 2;
+    max-width: 1100px;
+    background-color: darken(white, 6);
+}
+
+#header {
+    margin-bottom: $GAP;
+    padding: $GAP / 2;
+    background-color: white;
+}
+
+#logo {
+    display: block;
+}
+
+.nav {
+    margin-bottom: $GAP;
+
+    &__item {
+        color: $COLOR-PRIMARY;
+        font-weight: bold;
+    }
+}
+
+.promo {
+    margin-bottom: $GAP;
+}
+
+.article {
+    font-size: 1.5rem;
+    line-height: 1.35;
+}
+
+.picture {
+}

@@ -28,19 +28,18 @@ function getHtmPlugins(dir) {
 module.exports = {
     mode: 'development',
     entry: {
-        common: [`${dir.src}/js/app/index.js`, `${dir.src}/scss/entry/index.scss`],
-        validator: [`${dir.src}/js/app/validator.js`, `${dir.src}/scss/entry/index.scss`],
-        modules: [`${dir.src}/js/app/modules.js`, `${dir.src}/scss/entry/index.scss`],
+        index: [`${dir.src}/js/app/index.js`],
+        validator: [`${dir.src}/js/app/validator.js`],
+        modules: [`${dir.src}/js/app/modules.js`],
+        semantic: [`${dir.src}/scss/entry/semantic.scss`],
+        style: { import: `${dir.src}/scss/entry/index.scss`, runtime: 'global' },
     },
     plugins: [
-        new MiniCssExtractPlugin({ filename: '[name].css' }),
+        new MiniCssExtractPlugin({
+            filename: ({ chunk }) => (chunk.runtime !== chunk.name ? `${chunk.runtime}.css` : '[name].css'),
+        }),
         new CleanWebpackPlugin(),
         ...getHtmPlugins(`${dir.src}/templates`),
-        new HtmlWebpackPlugin({
-            title: 'Development',
-            chunks: ['common'],
-            template: __dirname + '/src/templates/index.html',
-        }),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),

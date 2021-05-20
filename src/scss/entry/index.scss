@@ -1,6 +1,6 @@
-@import '../vendor/normalize';
-@import '../variables';
-@import '../mixins/index';
-@import '../common/basic';
-@import '../common/utils';
+@import './required';
+@import '../global/basic';
+@import '../global/utils';
+
+// Components
 @import './components';
