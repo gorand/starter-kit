@@ -1,0 +1,21 @@
+.table {
+    $-root: &;
+    $-color-border: darken(white, 20);
+
+    margin-bottom: $GAP;
+    width: 100%;
+    border: 1px solid $-color-border;
+    background-color: white;
+    border-collapse: collapse;
+
+    th {
+        font-weight: bold;
+        padding: $GAP / 3;
+        border: 1px solid $-color-border;
+    }
+
+    td {
+        border: 1px solid $-color-border;
+        padding: $GAP / 3;
+    }
+}
