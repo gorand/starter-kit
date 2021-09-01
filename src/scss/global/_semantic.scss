@@ -7,8 +7,8 @@
 
 #header {
     margin-bottom: $GAP;
-    padding: $GAP / 2;
-    background-color: white;
+    padding: ($GAP * 0.75) $GAP;
+    background-color: darken(white, 3);
 }
 
 #logo {
@@ -19,6 +19,7 @@
     margin-bottom: $GAP;
 
     &__item {
+        margin-right: $GAP / 3;
         color: $COLOR-PRIMARY;
         font-weight: bold;
     }
