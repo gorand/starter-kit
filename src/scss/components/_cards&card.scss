@@ -27,8 +27,8 @@
 
     &::after {
         position: absolute;
-        right: -(ceil($-size-circle / 5));
-        top: -(ceil($-size-circle / 4));
+        right: -(ceil($-size-circle * 0.2));
+        top: -(ceil($-size-circle * 0.25));
         display: block;
         width: $-size-circle;
         height: $-size-circle;

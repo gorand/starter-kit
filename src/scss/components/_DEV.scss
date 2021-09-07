@@ -11,7 +11,7 @@
 
     &-nav {
         display: flex;
-        padding: ($GAP / 2) $GAP;
+        padding: ($GAP * 0.5) $GAP;
     }
 
     &-nav-item {

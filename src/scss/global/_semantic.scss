@@ -1,3 +1,5 @@
+@use "sass:math";
+
 #main {
     margin: $GAP auto;
     padding: $GAP * 2;
@@ -19,7 +21,7 @@
     margin-bottom: $GAP;
 
     &__item {
-        margin-right: $GAP / 3;
+        margin-right: math.div($GAP, 3);
         color: $COLOR-PRIMARY;
         font-weight: bold;
     }
